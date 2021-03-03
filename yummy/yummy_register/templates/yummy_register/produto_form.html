@@ -1,0 +1,29 @@
+{% extends "yummy_register/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="POST" autocomplete="off">
+    {%csrf_token%}
+    {{form.id_produto|as_crispy_field}}
+    {{form.nome_produto|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.valor_produto|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{form.loja_produto|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i> Submeter </button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'produto_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> De volta a lista
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}  
